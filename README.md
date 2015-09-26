@@ -23,6 +23,6 @@ from terminal
 
     $ path/to/file/pomodorotime.R
 
-## Screenshoot
+## Screenshot
 
 ![Screenshot](/screenshot.png)
