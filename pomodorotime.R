@@ -1,10 +1,15 @@
 #!/usr/bin/r
+# ---
+# author: Favio D'Ercole
+# license: GPLv3
+# ---
+
 require("RGtk2")
 require(gWidgets2)
 options(guiToolkit="RGtk2")
 
 # Parameters
-## default seconds duration for each timer
+## default duration for each timer in seconds
 refTime <- c(
   workingTime = 25*60,
   shortBreak = 5*60,
@@ -28,7 +33,7 @@ timer <- gtimer(1000,
   FUN = function(data, ...) {
     currentTime <- Sys.time();
     elapsedTime <<- as.numeric(difftime(currentTime, startTime, units="secs")) + previousTime
-    restTime <- refTime[st]-elapsedTime
+    restTime <- refTime[st] - elapsedTime
     min <- floor(restTime/60)
     sec <- round(restTime - min*60)
     frac <- 100*elapsedTime/refTime[st]
@@ -126,7 +131,6 @@ toolBar <- gtoolbar(list(startWorkingTime, pauseWorkingTime, gseparator(), stopW
 
 W <- gwindow("Pomodoro TimeR", visible=FALSE, 
       handler = function(h, ...) {
-#        gconfirm("Do you want to close?", parent=W)
         gtkMainQuit()
       }
     )
