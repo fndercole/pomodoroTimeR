@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=pomodoroTimeR
+Exec=/path/to/files/pomodorotime.R
+Icon=/path/to/files/pomodore.png
+Terminal=false
+Type=Application
